@@ -24,8 +24,12 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int PICK_IMAGE = 1;
     private ActivityMainBinding binding;
     private BottomNavigationView navigationView;
+    private ImageView imageView;
+    private AppBarConfiguration appBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,42 +37,46 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        Button Gallery = findViewById(R.id.ChooseBtn);
-        Gallery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, 3);
-            }
-        });
+        imageView = findViewById(R.id.ImgProfile);
 
         initViews();
         initNavController();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && data != null){
-            Uri selectedImage = data.getData();
-            ImageView imageView = findViewById(R.id.ImgProfile);
-            imageView.setImageURI(selectedImage);
-        }
+        initAppBar();
     }
 
     private void initNavController() {
-            BottomNavigationView navView = findViewById(R.id.nav_view);
-            // Passing each menu ID as a set of Ids because each
-            // menu should be considered as top level destinations.
-            AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                    .build();
-            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-            NavigationUI.setupWithNavController(binding.navView, navController);
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(binding.navView, navController);
     }
+
+    private void initAppBar() {
+        appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                .build();
+    }
+
     private void initViews() {
         navigationView = findViewById(R.id.nav_view);
     }
-}
+    public void pickImage(View view){
+        Intent pickIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(pickIntent,3);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent ReturningImageIntent) {
+        super.onActivityResult(requestCode, resultCode, ReturningImageIntent);
+            switch (requestCode) {
+                case 3:
+                    if (resultCode == RESULT_OK) {
+                        Uri selectedImage = ReturningImageIntent.getData();
+                        imageView.setImageURI(selectedImage);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+    }

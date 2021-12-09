@@ -21,7 +21,6 @@ import com.example.taskapp.ui.home.HomeViewModel;
 
 public class ProfileFragment extends Fragment {
 
-    private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
 
     @Override
