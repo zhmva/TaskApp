@@ -7,8 +7,15 @@
     android:id="@+id/fragmentHome"
     tools:context=".ui.home.HomeFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_task"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/taskRv"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
+        android:backgroundTint="#B896C1"
         android:id="@+id/ActionBtn"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

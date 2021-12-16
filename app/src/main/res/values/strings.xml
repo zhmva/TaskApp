@@ -8,4 +8,13 @@
     <string name="enter_your_text">Enter Your Text</string>
     <string name="save">Save</string>
     <string name="profile">Profile</string>
+    <string name="title">Title</string>
+    <string name="task_no">Task No:_</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="skip">Skip</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="skip">Skip</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@layout/fragment_on_board">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -33,4 +33,9 @@
         android:name="com.example.taskapp.ui.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/onBoardFragment2"
+        android:name="com.example.taskapp.ui.onBoardScreen.OnBoardFragment"
+        android:label="item_on_board"
+        tools:layout="@layout/item_on_board" />
 </navigation>
