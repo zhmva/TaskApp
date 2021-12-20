@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.taskapp.R;
+import com.example.taskapp.Utils.Prefs;
 import com.example.taskapp.databinding.FragmentOnBoardBinding;
 
 public class OnBoardFragment extends Fragment {
@@ -18,32 +18,6 @@ public class OnBoardFragment extends Fragment {
     private FragmentOnBoardBinding binding;
     private PagerAdapter adapter;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
-
-    public OnBoardFragment() {
-        // Required empty public constructor
-    }
-    public static OnBoardFragment newInstance(String param1, String param2) {
-        OnBoardFragment fragment = new OnBoardFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,12 +29,14 @@ public class OnBoardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initViewPager();
+        Prefs prefs = new Prefs(requireContext());
+        if (!prefs.isBoardShown()) {
+            initViewPager();
+        }
     }
+        private void initViewPager () {
+            adapter = new PagerAdapter();
+            binding.BoardViewPager2.setAdapter(adapter);
 
-    private void initViewPager() {
-        adapter = new PagerAdapter();
-        binding.BoardViewPager2.setAdapter(adapter);
-
+        }
     }
-}

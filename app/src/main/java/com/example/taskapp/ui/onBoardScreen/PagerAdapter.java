@@ -13,10 +13,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.taskapp.R;
+import com.example.taskapp.databinding.ItemOnBoardBinding;
+import com.example.taskapp.databinding.ItemTaskBinding;
 
 import java.util.List;
 
 public class PagerAdapter extends RecyclerView.Adapter<PagerAdapter.ViewHolder>{
+
+    ItemOnBoardBinding binding;
 
     @NonNull
     @Override
