@@ -9,18 +9,25 @@
     android:id="@+id/fragmentForm">
 
     <EditText
-        android:textAllCaps="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/taskEt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_your_text"/>
+        android:hint="Title"/>
+
+    <EditText
+        app:layout_constraintTop_toBottomOf="@id/taskEt"
+        android:id="@+id/DescEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"/>
+
 
     <Button
-        android:text="@string/save"
+        android:text="Add Task"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/taskEt"
+        app:layout_constraintTop_toBottomOf="@id/DescEt"
         android:id="@+id/saveBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

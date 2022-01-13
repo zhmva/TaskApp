@@ -1,16 +1,15 @@
 package com.example.taskapp.ui.form;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.taskapp.R;
 import com.example.taskapp.databinding.FragmentFormBinding;
@@ -22,9 +21,10 @@ public class FormFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentFormBinding.inflate(inflater,container,false);
+        binding = FragmentFormBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -32,9 +32,9 @@ public class FormFragment extends Fragment {
     }
 
     private void initListeners() {
-        binding.saveBtn.setOnClickListener(view ->{
-         save();
-         close();
+        binding.saveBtn.setOnClickListener(view -> {
+            save();
+            close();
         });
     }
 
@@ -44,9 +44,10 @@ public class FormFragment extends Fragment {
     }
 
     private void save() {
-        String text = binding.taskEt.getText().toString();
+        String task = binding.taskEt.getText().toString();
+        String description = binding.DescEt.getText().toString();
         Bundle bundle = new Bundle();
-        bundle.putString("text", text);
+        bundle.putString("key", task);
         getParentFragmentManager().setFragmentResult("key", bundle);
 
     }

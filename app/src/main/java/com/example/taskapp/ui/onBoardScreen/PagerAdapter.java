@@ -3,66 +3,59 @@ package com.example.taskapp.ui.onBoardScreen;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.taskapp.R;
 import com.example.taskapp.databinding.ItemOnBoardBinding;
-import com.example.taskapp.databinding.ItemTaskBinding;
-
-import java.util.List;
 
 public class PagerAdapter extends RecyclerView.Adapter<PagerAdapter.ViewHolder>{
 
-    ItemOnBoardBinding binding;
+    private ItemOnBoardBinding binding;
+    private String [] list = {"Stay organized!","Plan events","Be effective" };
+    private Integer[] imageList = {R.raw.on_board3, R.raw.on_board2,
+            R.raw.on_board4};
+    private String [] listD = {"Organize your tasks", "Comfortable interface",
+            "Keep your To-Do List!"};
 
     @NonNull
     @Override
     public PagerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_on_board, parent,
-                false);
-        return new ViewHolder(view) ;
+        binding = ItemOnBoardBinding.inflate(LayoutInflater.from(parent.getContext()),
+                parent, false);
+        return new ViewHolder(binding.getRoot()) ;
     }
 
     @Override
     public void onBindViewHolder(@NonNull PagerAdapter.ViewHolder holder, int position) {
         holder.onBind(position);
-
     }
+
+    public String[] getList() {
+        return list;
+    }
+
+    public Integer[] getImageList() {
+        return imageList;
+    }
+
 
     @Override
     public int getItemCount() {
-        return 2;
+        return list.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imageView;
-        private TextView title, description;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.boardImgView);
-            title = itemView.findViewById(R.id.boardTv);
-            description = itemView.findViewById(R.id.boardTv2);
         }
 
         public void onBind(int position) {
-            switch (position){
-                case 0:
-                    title.setText("Stay organized!");
-                    break;
-                case 1:
-                    title.setText("Plan events");
-                    break;
-                case 2:
-                    title.setText("Be effective");
-                    break;
-            }
+            binding.boardTv.setText(list[position]);
+            //binding.boardImgView.setImageResource(imageList[position]);
+            binding.boardTv2.setText(listD[position]);
+            binding.boardImgView.setAnimation(imageList[position]);
+        }
         }
     }
-}
+

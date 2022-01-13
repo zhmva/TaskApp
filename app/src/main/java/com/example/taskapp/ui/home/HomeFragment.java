@@ -41,13 +41,13 @@ public class HomeFragment extends Fragment {
     }
 
     private void setFragmentListener() {
-        getParentFragmentManager().setFragmentResultListener("key", getViewLifecycleOwner(), new FragmentResultListener() {
-            @Override
-            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                String text = result.getString("key");
-                Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show();
-            }
-        });
+        getParentFragmentManager().setFragmentResultListener("key",
+                getViewLifecycleOwner(), new FragmentResultListener() {
+                    @Override
+                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                        String text = result.getString("key");
+                    }
+                });
     }
 
     private void initListeners() {
@@ -57,9 +57,11 @@ public class HomeFragment extends Fragment {
     }
 
     private void openFragment() {
-        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
-        navController.navigate(R.id.fragmentForm);
+        NavController navController = Navigation.findNavController(requireActivity(),
+                R.id.nav_host_fragment_activity_main);
+        navController.navigate(R.id.formFragment);
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

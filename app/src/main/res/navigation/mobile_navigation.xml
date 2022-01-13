@@ -24,9 +24,20 @@
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
+        android:id="@+id/onBoardFragment2"
+        android:name="com.example.taskapp.ui.onBoardScreen.OnBoardFragment"
+        android:label="fragment_on_board"
+        tools:layout="@layout/fragment_on_board" />
+
+    <fragment
+        android:id="@+id/formFragment"
+        android:name="com.example.taskapp.ui.form.FormFragment"
+        android:label="fragment_form"
+        tools:layout="@layout/fragment_form" />
+    <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.taskapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:name="com.example.taskapp.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 
 </navigation>
