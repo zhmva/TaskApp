@@ -4,19 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/drawable/circle.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/drawable/ic_add_task.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2203125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2203125" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/drawable/task_shape.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/font/montserrat_bold.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_auth.xml" value="0.21" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_form.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_dialog.xml" value="0.1118659420289855" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_form.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_notifications.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_on_board.xml" value="0.22" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_profile.xml" value="0.16" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_on_board.xml" value="0.18" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_task.xml" value="0.12" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/layout/item_task.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/TaskApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -25,5 +29,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.14" />
+      </ProjectState>
+    </option>
   </component>
 </project>

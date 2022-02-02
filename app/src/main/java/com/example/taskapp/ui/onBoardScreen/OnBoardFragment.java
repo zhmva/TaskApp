@@ -54,6 +54,6 @@ public class OnBoardFragment extends Fragment {
     private void openFragment() {
         NavController navController = Navigation.findNavController(requireActivity(),
                 R.id.nav_host_fragment_activity_main);
-        navController.navigate(R.id.navigation_home);
+        navController.navigate(R.id.authFragment);
     }
 }

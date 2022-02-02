@@ -1,11 +1,8 @@
 package com.example.taskapp;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,8 +16,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.taskapp.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,10 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private BottomNavigationView navView;
     private AppBarConfiguration appBarConfiguration;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        button = findViewById(R.id.ImgPicker);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initViews();
@@ -39,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
         initNavController();
     }
 
-    private void initNavController() {
+
+        private void initNavController() {
         NavController navController;
         navController = Navigation.findNavController(this,
                 R.id.nav_host_fragment_activity_main);
@@ -57,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDestinationChanged(@NonNull NavController controller,
                                              @NonNull NavDestination destination,
                                              @Nullable Bundle arguments) {
+
                 ArrayList<Integer> list = new ArrayList<>();
                 list.add(R.id.navigation_home);
                 list.add(R.id.navigation_dashboard);
@@ -81,22 +80,5 @@ public class MainActivity extends AppCompatActivity {
 
     private void initViews() {
         navView = findViewById(R.id.nav_view);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && requestCode == 1) {
-            ImageView imageView = findViewById(R.id.ImgProfile);
-            try {
-                InputStream inputStream = getContentResolver().openInputStream(data.getData());
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                imageView.setImageBitmap(bitmap);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-
-            }
-        }
     }
 }

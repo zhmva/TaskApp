@@ -13,6 +13,7 @@ import androidx.navigation.Navigation;
 
 import com.example.taskapp.R;
 import com.example.taskapp.databinding.FragmentFormBinding;
+import com.example.taskapp.models.User;
 
 public class FormFragment extends Fragment {
 
@@ -34,21 +35,35 @@ public class FormFragment extends Fragment {
     private void initListeners() {
         binding.saveBtn.setOnClickListener(view -> {
             save();
+            saveInList();
             close();
         });
     }
 
+    private void saveInList() {
+        String name = binding.nameEt.getText().toString();
+        String surname = binding.surnameEt.getText().toString();
+        User user = new User(name, surname);
+        Bundle bundle = new Bundle();
+        bundle.putString("key", String.valueOf(user));
+        getParentFragmentManager().setFragmentResult("key", bundle);
+
+
+    }
+
     private void close() {
-        NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_activity_main);
+        NavController navController = Navigation.findNavController(requireActivity(),
+                R.id.nav_host_fragment_activity_main);
         navController.navigateUp();
     }
 
     private void save() {
-        String task = binding.taskEt.getText().toString();
-        String description = binding.DescEt.getText().toString();
+        String name = binding.nameEt.getText().toString();
+        String surname = binding.surnameEt.getText().toString();
+        User user = new User(name, surname);
         Bundle bundle = new Bundle();
-        bundle.putString("key", task);
-        getParentFragmentManager().setFragmentResult("key", bundle);
+        bundle.putSerializable("user", user);
+        getParentFragmentManager().setFragmentResult("user", bundle);
 
     }
 }
